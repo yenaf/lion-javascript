@@ -15,7 +15,7 @@
 - [x] Type Conversion 형변환 [바로가기](https://ko.javascript.info/type-conversions)
 - [x] Operations 기본연산자 [바로가기](https://ko.javascript.info/operators)
 - [x] Operations 비교연산자 [바로가기](https://ko.javascript.info/comparison)
-- [ ] Condition if [바로가기](https://ko.javascript.info/ifelse)
+- [ ] Condition 조건문 [바로가기](https://ko.javascript.info/ifelse)
 - [ ] Operations 논리연산자 [바로가기](https://ko.javascript.info/logical-operators)
 - [ ] Condition switch [바로가기](https://ko.javascript.info/switch)
 - [ ] Operations 병합연산자 [바로가기](https://ko.javascript.info/nullish-coalescing-operator)
@@ -350,10 +350,53 @@ undefined === null → false
 null == "\n0\n" → false
 null === +"\n0\n" → false
 ```
+---
+
+#### Condition 조건문 [바로가기](https://ko.javascript.info/ifelse)
+- if~else , if~else if
+- 조건부 연산자 ‘?’
+조건부 연산자는 물음표?로 표시합니다. 피연산자가 세 개이기 때문에 조건부 연산자를 '삼항(ternary) 연산자’라고도 합니다.
+- 조건이 많이지면 if문을 쓰는것이 더 가독성이 좋다. switch~case > if > 삼항연산자
+
+문 vs 식
+문{}은 값을 내뱉지않는다
+식은 값을 퉤하고 내뱉는다 
+
+---
+
+#### Operations 논리연산자 [바로가기](https://ko.javascript.info/logical-operators)
+
+alert 메서드는 값을 반환하지 않습니다. 즉, undefined를 반환하죠.
+alert 는 "실행하고 나면" undefined 를 반환
+
+첫 번째 truthy를 찾는 OR 연산자 ‘||’
+피연산자를 불린형으로 변환합니다. 변환 후 그 값이 true이면 연산을 멈추고 해당 피연산자의 변환 전 원래 값을 반환합니다.
+
+빈 배열, 빈 객체 , 빈 함수 --> 불린형으로 변환했을때 true
+
+---
+
+#### Condition switch [바로가기](https://ko.javascript.info/switch)
+
+조건이 많아졌을때 switch~case문이 연산속도가 훨씬 빠르다
+
+
+T || : 먼저나오는 truthy를 찾는다, 아니면 끝을 반환
+F && : 먼저나오는 falsy를 찾는다, 아니면 끝을 반환
+확 ?? : 먼저나오는 확정값을 찾는다, 아니면 끝을 반환
 
 
 
+---
 
+#### Operations 병합연산자 [바로가기](https://ko.javascript.info/nullish-coalescing-operator)
+
+---
+
+
+#### Loop [바로가기](https://ko.javascript.info/while-for)
+while반복문
+nodeType속성 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType)
 
 
 
