@@ -20,6 +20,9 @@
 - [ ] Condition switch [바로가기](https://ko.javascript.info/switch)
 - [ ] Operations 병합연산자 [바로가기](https://ko.javascript.info/nullish-coalescing-operator)
 - [ ] Loop [바로가기](https://ko.javascript.info/while-for)
+- [ ] Functions 함수선언문[바로가기](https://ko.javascript.info/function-basics)
+- [ ] Functions 함수표현식[바로가기](https://ko.javascript.info/function-expressions)
+- [ ] Functions 화살표함수[바로가기](https://ko.javascript.info/arrow-functions-basics)
 
 ---
 
@@ -399,4 +402,141 @@ while반복문
 nodeType속성 [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType)
 
 
+.split 객체를 지정한 구분자를 이용하여 여러 개의 문자열로 나눕니다. [바로가기](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+
+
+#### Functions 함수 [바로가기](https://ko.javascript.info/function-basics)
+
+//함수 선언문 function(){}
+//함수 표현식 
+const f = function(){}
+const f2 = ()=>
+
+매개변수 = 파라미터(parameter) = 인자
+argument 인수
+
+함수 호출 시 매개변수에 인수를 전달하지 않으면 그 값은 undefined가 됩니다.
+
+함수 이름짓기
+함수는 어떤 동작을 수행하기 위한 코드를 모아놓은 것입니다. 따라서 함수의 이름은 대개 동사입니다.
+함수가 어떤 동작을 하는지 축약해서 설명해 주는 동사를 접두어로 붙여 함수 이름을 만드는 게 관습입니다. 
+"get…" – 값을 반환함
+"calc…" – 무언가를 계산함
+"create…" – 무언가를 생성함
+"check…" – 무언가를 확인하고 불린값을 반환함
+
+함수는 동작 하나만 담당해야 합니다.
+함수 선언문은 함수 선언문이 정의되기 전에도 호출할 수 있습니다.
+
+
+
+
+#### Functions 함수표현식[바로가기](https://ko.javascript.info/function-expressions)
+- 함수는 값이다!
+```js
+let sayHi = function(){
+  alert('hello');
+};
+sayHi(); //함수실행
+sayHi //함수 본문(함수코드)
+
+let func = sayHi //함수 복사(함수 그자체를 복사)
+let func1 = sayHi() //함수호출결과(함수의 반환값)을 저장
+
+func() //함수실행
+sayHi(); //본래함수도 정상적으로 실행
+
+```
+- 함수를 생성하고 변수에 값을 할당하는 것 처럼 함수가 변수에 할당된다. 함수는 값이기 때문에 가능
+- if { ... }, for { }, function f { } 같이 중괄호로 만든 코드 블록 끝엔 ;이 없어도 됩니다.
+- 함수 표현식에 쓰인 세미 콜론은 함수 표현식 때문에 붙여진 게 아니라, 구문의 끝이기 때문에 붙여졌습니다.
+
+##### 콜백함수 : 나중에 호출한다
+함수를 함수의 인수로 전달하고, 필요하다면 인수로 전달한 그 함수를 "나중에 호출(called back)"하는 것이 콜백 함수의 개념입니다.
+```js
+function ask(question, yes, no){
+  if(confirm(question)) yes()
+  else no();
+}
+
+  function showOk(){
+    alert('동의');
+  }
+
+  function showCancel(){
+    alert('취소');
+  }
+ask(
+  '동의합니까?',
+  showOk,
+  showCancel
+  );
+```
+
+##### 익명함수
+이름 없이 선언한 함수는 익명 함수(anonymous function) 라고 부릅니다. 익명 함수는 (변수에 할당된 게 아니기 때문에) ask 바깥에선 접근할 수 없습니다.
+```js
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "동의하십니까?",
+  function() { alert("동의하셨습니다."); },
+  function() { alert("취소 버튼을 누르셨습니다."); }
+);
+```
+```
+**메모**
+함수의 선언부 : 매개변수 / 실행부 : 인수
+함수 안에서만 접근 가능한 인수들의 집합 객체로서 배열과 유사한 형태를 가지고 있는 이것은? arguments
+함수를 선언하면 arguments를 만들수있다.
+
+forEach는 반복! reduce는 값을 내뱉는다.
+Instance Method : 생성자 함수를 통해 생성된 객체만 사용할수 있는 능력
+Sratic Method : 객체생성 없이 사용할수 있는 유틸 메서드
+```
+
+
+#### Functions 화살표함수[바로가기](https://ko.javascript.info/arrow-functions-basics)
+- 함수는 함수선언문 함수표현식이있는데 화살표함수는 함수표현식!
+- 화살표 함수는 본문이 한 줄인 함수를 작성할 때 유용합니다.
+
+```js
+//일반적인 함수
+let sum = function(a,b){
+  return a+b;
+}
+sum(10,20);
+
+//화살표함수
+//구문이 한줄일때 중괄호 생략할수있다.
+//중괄호가 없으면 return 을 생략할수있다.
+let sum = (a,b)=> a+b;
+
+//인수가 하나밖에 없다면 인수를 감싸는 괄호를 생략할 수 있습니다.;
+let double = n => n*2;
+double(3)
+
+//중괄호를 사용했다면 return으로 결과값을 반환해주어야한다.
+let sum = (a,b)=>{
+  let result = a+b;
+  return result;
+}
+```
+- 화살표함수는 arguments가 없어 쓸수없다.
+- 대신 rest parameter 를 사용할수있다.
+
+```js
+let calculateTotal = (...args)=>{
+  // let realArray = [...arguments];
+  return args.reduce((acc,item)=>{
+    return acc+item;
+  },0)
+  
+}
+const result = calculateTotal(1000,500,200,6500);
+console.log(result);
+```
 
