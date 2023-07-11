@@ -1,30 +1,50 @@
 # 멋쟁이 사자처럼
 ---
 ## 자바스크립트 학습 저장소
-
----
-
-### basic 목차
 학습이 완료된 항목은 체크박스로 표시됩니다.
 
-- [x] CodeStructure [바로가기](https://ko.javascript.info/structure)
-- [x] Variable 변수 [바로가기](https://ko.javascript.info/variables)
-- [x] Strict Mode 엄격모드 [바로가기](https://ko.javascript.info/strict-mode)
-- [x] Global This 전역객체 [바로가기](https://ko.javascript.info/global-object)
-- [x] Data Types 자료형 [바로가기](https://ko.javascript.info/global-object)
-- [x] Type Conversion 형변환 [바로가기](https://ko.javascript.info/type-conversions)
-- [x] Operations 기본연산자 [바로가기](https://ko.javascript.info/operators)
-- [x] Operations 비교연산자 [바로가기](https://ko.javascript.info/comparison)
-- [ ] Condition 조건문 [바로가기](https://ko.javascript.info/ifelse)
-- [ ] Operations 논리연산자 [바로가기](https://ko.javascript.info/logical-operators)
-- [ ] Condition switch [바로가기](https://ko.javascript.info/switch)
-- [ ] Operations 병합연산자 [바로가기](https://ko.javascript.info/nullish-coalescing-operator)
-- [ ] Loop [바로가기](https://ko.javascript.info/while-for)
-- [ ] Functions 함수선언문[바로가기](https://ko.javascript.info/function-basics)
-- [ ] Functions 함수표현식[바로가기](https://ko.javascript.info/function-expressions)
-- [ ] Functions 화살표함수[바로가기](https://ko.javascript.info/arrow-functions-basics)
+---
+
+### basic
+
+- [x] CodeStructure [info 바로가기](https://ko.javascript.info/structure)
+- [x] Variable 변수 [info 바로가기](https://ko.javascript.info/variables)
+- [x] Strict Mode 엄격모드 [info 바로가기](https://ko.javascript.info/strict-mode)
+- [x] Global This 전역객체 [info 바로가기](https://ko.javascript.info/global-object)
+- [x] Data Types 자료형 [info 바로가기](https://ko.javascript.info/global-object)
+- [x] Type Conversion 형변환 [info 바로가기](https://ko.javascript.info/type-conversions)
+
+### Operations
+- [x] Operations 기본연산자 [info 바로가기](https://ko.javascript.info/operators)
+- [x] Operations 비교연산자 [info 바로가기](https://ko.javascript.info/comparison)
+
+### Condition
+- [ ] condition (if조건문) [info 바로가기](https://ko.javascript.info/ifelse)
+- [ ] condition (논리연산자) [info 바로가기](https://ko.javascript.info/logical-operators)
+- [ ] condition (switch..case) [info 바로가기](https://ko.javascript.info/switch)
+- [ ] condition (nullish) [info 바로가기](https://ko.javascript.info/nullish-coalescing-operator)
+
+### Loop
+- [ ] Loop [info 바로가기](https://ko.javascript.info/while-for)
+
+
+### Function
+- [ ] Functions 함수선언문[info 바로가기](https://ko.javascript.info/function-basics)
+- [ ] Functions 함수표현식[info 바로가기](https://ko.javascript.info/function-expressions)
+- [ ] Functions 화살표함수[info 바로가기](https://ko.javascript.info/arrow-functions-basics)
+
+
+### Object
+- [ ] Objects 객체 [info 바로가기](https://ko.javascript.info/object)
+- [ ] Objects 참조객체복사 [info 바로가기](https://ko.javascript.info/object-copy)
+
+
+
+
+
 
 ---
+
 
 #### CodeStructure [바로가기](https://ko.javascript.info/structure)
 - 문(statement)은 어떤 작업을 수행하는 문법 구조(syntax structure)와 명령어(command)를 의미합니다.
@@ -540,3 +560,70 @@ const result = calculateTotal(1000,500,200,6500);
 console.log(result);
 ```
 
+
+---
+
+
+#### Objects 객체 [바로가기](https://ko.javascript.info/object)
+객체는 중괄호 {…}를 이용해 만들 수 있습니다. 중괄호 안에는 ‘키(key): 값(value)’ 쌍으로 구성된 프로퍼티(property) 를 여러 개 넣을 수 있는데, 키엔 문자형, 값엔 모든 자료형이 허용됩니다.
+중괄호 {...} 안에는 ‘키: 값’ 쌍으로 구성된 프로퍼티가 들어갑니다.
+여러 단어를 조합해 프로퍼티 이름을 만든 경우엔 프로퍼티 이름을 따옴표로 묶어줘야 합니다.
+```js
+let user = new Object(); // '객체 생성자' 문법
+let user = {};  // '객체 리터럴' 문법
+```
+
+delete 연산자를 사용하면 프로퍼티를 삭제할 수 있습니다.
+```js
+let user = {     // 객체
+  name: "John",  // 키: "name",  값: "John"
+  age: 30        // 키: "age", 값: 30
+  'likes birds':true;
+};
+
+// 프로퍼티 값 얻기
+alert( user.name ); // John
+alert( user.age ); // 30
+
+user.isAdmin = true;//불린형 프로퍼티를 추가
+user[likes birds] = true;//불린형 프로퍼티를 추가
+
+delete user.age;
+
+```
+##### 계산된 프로퍼티(computed property)
+
+단축프로퍼티
+
+##### Objects 참조객체복사 [바로가기](https://ko.javascript.info/object-copy)
+객체가 할당된 변수를 복사할 땐 객체의 참조 값이 복사되고 객체는 복사되지 않습니다.
+```js
+let user = { name: 'John' };
+let admin = user;
+admin.name = 'Pete'; // 'admin' 참조 값에 의해 변경됨
+alert(user.name); // 'Pete'가 출력됨. 'user' 참조 값을 이용해 변경사항을 확인함
+```
+
+
+객체 복사, 병합과 Object.assign
+객체를 복제하고 싶다면 ??
+
+'얕은 복사(shallow copy)'를 가능하게 해주는 Object.assign
+```js
+let user = { name: "John" };
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// permissions1과 permissions2의 프로퍼티를 user로 복사합니다.
+Object.assign(user, permissions1, permissions2);
+
+// now user = { name: "John", canView: true, canEdit: true }
+```
+'깊은 복사’를 가능하게 해주는 _.cloneDeep(obj)
+```js
+var objects = [{ 'a': 1 }, { 'b': 2 }];
+ 
+var deep = _.cloneDeep(objects);
+console.log(deep[0] === objects[0]);
+// => false
+```
